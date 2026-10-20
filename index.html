@@ -1,32 +1,24 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8">
+<html lang="zh-CN" class="no-js"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
 <title>DeepSeek Harness 面试准备</title>
+<link rel="stylesheet" href="https://psylch.github.io/assets/report.css">
 <style>
-body{margin:0;font:16px/1.75 -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;color:#1f2328;background:#f6f8fa}
-header{background:#24292f;color:#fff;padding:18px 16px}header h1{margin:0;font-size:20px}header p{margin:4px 0 0;font-size:13px;opacity:.8}
-nav{position:sticky;top:0;background:#fff;border-bottom:1px solid #d0d7de;display:flex;overflow-x:auto;z-index:9}
-nav button{flex:0 0 auto;border:0;background:none;padding:12px 14px;font-size:15px;color:#57606a;cursor:pointer;border-bottom:3px solid transparent}
-nav button.on{color:#0969da;border-color:#0969da;font-weight:600}
-main{max-width:860px;margin:0 auto;padding:16px}section{display:none}section.on{display:block}
-h2{font-size:20px;border-left:4px solid #0969da;padding-left:10px}h3{font-size:17px;margin-top:26px}
-.card{background:#fff;border:1px solid #d0d7de;border-radius:8px;padding:12px 16px;margin:12px 0}
-.tldr{background:#ddf4ff;border-color:#54aeff}.warn{background:#fff8c5;border-color:#d4a72c}
-table{border-collapse:collapse;width:100%;font-size:14px;display:block;overflow-x:auto}th,td{border:1px solid #d0d7de;padding:6px 8px;vertical-align:top}th{background:#f6f8fa;text-align:left}
-code{background:#eff1f3;padding:1px 4px;border-radius:4px;font-size:13px;word-break:break-all}
-.tag{display:inline-block;font-size:12px;padding:0 6px;border-radius:10px;background:#eee;margin-right:4px}
-.hi{background:#dafbe1}.mid{background:#fff8c5}.lo{background:#ffebe9}
-a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;border-left:3px solid #d0d7de;color:#57606a}
-</style></head><body>
-<header><h1>DeepSeek Harness（dsh）面试准备</h1><p>源码快照：tag dsh-v0.2.1-rc.2 · commit 687f282e（2026-10-17）· 数据截至 2026-10-19</p></header>
-<nav id="nav">
+.report code{overflow-wrap:anywhere}
+.report td .tag{white-space:normal}
+@media(min-width:561px){#nav>button{padding:10px 14px}}
+</style></head><body class="report">
+<main>
+<a class="back" href="https://psylch.github.io/">← psylch</a>
+<header><h1>DeepSeek Harness（dsh）面试准备</h1><p class="meta">源码快照：tag dsh-v0.2.1-rc.2 · commit 687f282e（2026-10-17）· 数据截至 2026-10-19</p></header>
+<nav id="nav" class="tabs sticky" data-tabs>
 <button data-t="t1" class="on">1 原版了解</button><button data-t="t2">2 用户·社区·路线图</button><button data-t="t3">3 最近动态</button><button data-t="t4">4 论文精读</button><button data-t="t5">5 团队最关心什么</button>
-</nav><main>
+</nav>
 
 <!-- ============ TAB 1 ============ -->
-<section id="t1" class="on">
-<div class="card tldr"><b>一句话：</b>dsh 是 DeepSeek 开源（MIT）的 agent harness：模型接入、工具、会话日志、审批、沙箱、agent 主循环和界面全是 <b>Cordis 插件</b>，可以直接拿来干活，也可以拆了重组成自己的产品。官方定位仍是「开发者预览，会有破坏性变更」。<br><small>来源：<a href="https://github.com/deepseek-ai/deepseek-harness">README</a>、<code>docs/architecture.zh.md:9-11</code></small></div>
+<section id="t1" class="panel on">
+<div class="callout"><b>一句话：</b>dsh 是 DeepSeek 开源（MIT）的 agent harness：模型接入、工具、会话日志、审批、沙箱、agent 主循环和界面全是 <b>Cordis 插件</b>，可以直接拿来干活，也可以拆了重组成自己的产品。官方定位仍是「开发者预览，会有破坏性变更」。<br><small>来源：<a href="https://github.com/deepseek-ai/deepseek-harness">README</a>、<code>docs/architecture.zh.md:9-11</code></small></div>
 
 <h3>产品形态</h3>
 <table><tr><th>形态</th><th>你拿到什么</th><th>源码</th></tr>
@@ -67,8 +59,8 @@ a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;bor
 </section>
 
 <!-- ============ TAB 2 ============ -->
-<section id="t2">
-<div class="card tldr"><b>要点：</b>热度极高（25.4 万星），但官方<b>不接受外部 PR、关闭了 Issues</b>，所有反馈都走 GitHub Discussions（累计 10,121 帖）。社区抱怨集中在<b>安装/升级就坏、Windows 沙箱、客户端形态（要 CLI/TUI/Linux 桌面）、插件生态缺治理</b>。官方没有公开路线图。</div>
+<section id="t2" class="panel">
+<div class="callout"><b>要点：</b>热度极高（25.4 万星），但官方<b>不接受外部 PR、关闭了 Issues</b>，所有反馈都走 GitHub Discussions（累计 10,121 帖）。社区抱怨集中在<b>安装/升级就坏、Windows 沙箱、客户端形态（要 CLI/TUI/Linux 桌面）、插件生态缺治理</b>。官方没有公开路线图。</div>
 
 <h3>基本数字（GitHub API，2026-10-19）</h3>
 <table><tr><td>Stars</td><td>254,314</td></tr><tr><td>Forks</td><td>30,735</td></tr><tr><td>Watchers</td><td>1,103</td></tr><tr><td>创建</td><td>2026-08-13（同日发布 V4-Pro 正式版）</td></tr><tr><td>Issues</td><td>关闭（has_issues=false）</td></tr><tr><td>Discussions</td><td>10,121 帖；最近 4,000 帖覆盖 9/11–10/19，约每周 580–790 帖</td></tr><tr><td>发布</td><td>31 个 prerelease，全部是 alpha/rc，尚无正式版</td></tr></table>
@@ -114,8 +106,8 @@ a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;bor
 </section>
 
 <!-- ============ TAB 3 ============ -->
-<section id="t3">
-<div class="card tldr"><b>要点：</b>两个月内 31 个预发布版，节奏是“几乎每天一个 alpha、每 1–2 周一个 rc”。最近的方向：<b>插件平台化（市场、热重载、Claude Code Mods 兼容）、桌面化、模型与 harness 一起调</b>（10/17 新模型“训练时专门为 DSH 优化”），以及把 DeepSeek 自家搜索接进 harness。</div>
+<section id="t3" class="panel">
+<div class="callout"><b>要点：</b>两个月内 31 个预发布版，节奏是“几乎每天一个 alpha、每 1–2 周一个 rc”。最近的方向：<b>插件平台化（市场、热重载、Claude Code Mods 兼容）、桌面化、模型与 harness 一起调</b>（10/17 新模型“训练时专门为 DSH 优化”），以及把 DeepSeek 自家搜索接进 harness。</div>
 <h3>时间线</h3>
 <table><tr><th>日期</th><th>事件</th></tr>
 <tr><td>2026-05-15/20</td><td>官网挂出 Agent Harness 产品经理 / 研发工程师岗位，“内部对标 Claude Code”（<a href="https://www.yicai.com/news/103192868.html">第一财经</a>）</td></tr>
@@ -136,14 +128,14 @@ a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;bor
 <li><b>通用化：</b>默认 SDK 身份从“编程 agent”改为“通用 AI Agent”；SSH 远端 helper；Git Worktrees 插件；Web 可配 HTTPS 和对外 URL。</li></ul>
 
 <h3>模型 × harness 联动</h3>
-<div class="card"><b>V4.1-Flash-1017（10/17）：</b>官方称“针对 DeepSeek Harness、腾讯 CodeBuddy、WorkBuddy 等优化”，并建议升级到 dsh 0.2.1-rc.1 以上（<a href="https://api-docs.deepseek.com/news/news261017/">API 新闻</a>）；@DeepSeekHarness 说新模型“训练时专门为 DSH 优化，提升任务表现，同时缩短运行时间、降低输出与 token 成本”（<a href="https://x.com/DeepSeekHarness/status/2111376365497077958">X</a>）。<span class="tag mid">厂商说法</span></div>
+<div class="card"><b>V4.1-Flash-1017（10/17）：</b>官方称“针对 DeepSeek Harness、腾讯 CodeBuddy、WorkBuddy 等优化”，并建议升级到 dsh 0.2.1-rc.1 以上（<a href="https://api-docs.deepseek.com/news/news261017/">API 新闻</a>）；@DeepSeekHarness 说新模型“训练时专门为 DSH 优化，提升任务表现，同时缩短运行时间、降低输出与 token 成本”（<a href="https://x.com/DeepSeekHarness/status/2111376365497077958">X</a>）。<span class="tag warn">厂商说法</span></div>
 <div class="card"><b>Search & Fetch API（10/17）：</b>Search 返回结构化结果、Fetch 返回整页 Markdown，各 $0.75/千次成功请求，失败/空结果/超时不计费；QPS 上限 Search 100、Fetch 25（账号级）。通过 DeepSeek Harness、Claude Code、Codex 使用 DeepSeek API 时，服务端工具调用已走这两个接口，北京时间 11/1 0 点起计费（<a href="https://api-docs.deepseek.com/guides/search/">文档</a>）。“每天服务数亿请求”是厂商说法。<br><b>源码里：</b>rc.2 加入了 <code>web-deepseek-api</code> 提供方（提交信息：“behind a settings switch”），但 base 配置的默认搜索仍是 <code>deepseek-official</code>、抓取是 <code>http</code>，新 API 需在设置里切换（<code>packages/bundle/base/cordis.patch.yml:462-478</code>）。</div>
 <p><small>开发在内部组织 deepseek-harness 进行，公开仓库按发布同步合并提交（如 PR #6408）。</small></p>
 </section>
 
 <!-- ============ TAB 4 ============ -->
-<section id="t4">
-<div class="card tldr"><b>论文：</b><a href="https://arxiv.org/abs/2608.25512">A Programming Paradigm for Spatiotemporal Composability</a>（arXiv 2608.25512），作者 Yifan Shi（北大/DeepSeek）、Wei Zhang（北大）、Tianyi Cui（DeepSeek）。约 80 页，是一篇<b>编程语言理论论文</b>，几乎不谈模型，也<b>没有 dsh 的评测</b>；它是 dsh 底座 Cordis 的设计依据。</div>
+<section id="t4" class="panel">
+<div class="callout"><b>论文：</b><a href="https://arxiv.org/abs/2608.25512">A Programming Paradigm for Spatiotemporal Composability</a>（arXiv 2608.25512），作者 Yifan Shi（北大/DeepSeek）、Wei Zhang（北大）、Tianyi Cui（DeepSeek）。约 80 页，是一篇<b>编程语言理论论文</b>，几乎不谈模型，也<b>没有 dsh 的评测</b>；它是 dsh 底座 Cordis 的设计依据。</div>
 
 <h3>它要解决的两个问题（用 harness 场景说）</h3>
 <table><tr><th>维度</th><th>问的是</th><th>翻车场景</th></tr>
@@ -181,33 +173,33 @@ a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;bor
 
 <h3>它透露的团队优先级（推断）</h3>
 <table><tr><th>推断</th><th>置信度</th></tr>
-<tr><td>把“能否干净地增删改组件”当一等问题，而不是靠重启</td><td><span class="tag hi">高</span></td></tr>
-<tr><td>长期目标是 harness 自己改自己（自演化），插件生态是第一步</td><td><span class="tag hi">高</span>（作者原话，但明确标为未来）</td></tr>
-<tr><td>重“正确性论证”，量化评测暂未交付</td><td><span class="tag hi">高</span></td></tr>
-<tr><td>恢复的关注点是“组件生命周期”，不是“业务任务的耐久执行”</td><td><span class="tag mid">中高</span>（论文不覆盖业务状态迁移）</td></tr></table>
+<tr><td>把“能否干净地增删改组件”当一等问题，而不是靠重启</td><td><span class="tag ok">高</span></td></tr>
+<tr><td>长期目标是 harness 自己改自己（自演化），插件生态是第一步</td><td><span class="tag ok">高</span>（作者原话，但明确标为未来）</td></tr>
+<tr><td>重“正确性论证”，量化评测暂未交付</td><td><span class="tag ok">高</span></td></tr>
+<tr><td>恢复的关注点是“组件生命周期”，不是“业务任务的耐久执行”</td><td><span class="tag warn">中高</span>（论文不覆盖业务状态迁移）</td></tr></table>
 </section>
 
 <!-- ============ TAB 5 ============ -->
-<section id="t5">
-<div class="card tldr"><b>结论先行：</b>团队眼下最关心的是 ①插件生态从“热闹”到“有秩序”（API 稳定、市场、兼容）②升级不坏、跨平台可用 ③模型和 harness 一起进化，并用真实使用数据衡量 ④从编码扩到通用 agent。你的“agent 终局是人”推出的候选增量里，<b>“汇报线/通知”和“跨重启的耐久等待”有社区证据</b>，但不是团队当前公开的主线；最贴合 JD 的切入点其实是<b>“怎么衡量 agent 真的帮到了人”</b>。</div>
+<section id="t5" class="panel">
+<div class="callout"><b>结论先行：</b>团队眼下最关心的是 ①插件生态从“热闹”到“有秩序”（API 稳定、市场、兼容）②升级不坏、跨平台可用 ③模型和 harness 一起进化，并用真实使用数据衡量 ④从编码扩到通用 agent。你的“agent 终局是人”推出的候选增量里，<b>“汇报线/通知”和“跨重启的耐久等待”有社区证据</b>，但不是团队当前公开的主线；最贴合 JD 的切入点其实是<b>“怎么衡量 agent 真的帮到了人”</b>。</div>
 
 <h3>A. 团队可能最关心的问题</h3>
 <table><tr><th>#</th><th>问题</th><th>证据</th><th>置信度</th></tr>
-<tr><td>1</td><td><b>插件生态的秩序：</b>API 稳定、减少破坏性变更、市场与兼容</td><td>Tianyi Cui：“60% 用户用了第三方插件……推动插件 API 趋于稳定”（<a href="https://x.com/tianyi/status/2103534313463783831">9/25</a>）、“长远来看不能依赖插件作者每次改代码兼容新版本”（<a href="https://x.com/tianyi/status/2107030904233460208">10/5</a>）；rc.1 大量插件平台功能，<code>engines.dsh</code> 兼容声明；社区 #1115 #670</td><td><span class="tag hi">高</span></td></tr>
-<tr><td>2</td><td><b>模型 × harness 共同进化</b></td><td>JD：“与模型训练团队的研究员深度合作，实现模型与 Harness 的共同进化”“以内部真实任务做为……训练的重要反馈源”；V4.1-Flash-1017“训练时专门为 DSH 优化”；默认开启的 <code>dsh_session_log</code> 请求扩展会随请求带会话事件（<code>docs/deepseek-llm-api-wire-extensions.zh.md:76</code>）；DSec 训练沙盒</td><td><span class="tag hi">高</span></td></tr>
-<tr><td>3</td><td><b>定义并衡量“Agent 是否真的在更多场景下更深入地帮助到更多的人”</b></td><td>JD 原文职责；同时社区在用自测数据质疑 token 消耗（#8934、#6688）；仓库评测以工程回归和性能为主，任务能力评测只有部分（<code>BENCHMARK.md:3</code>，goal 无独立 evaluator：<code>packages/goal/goal-round-driver/README.zh.md:125</code>）</td><td><span class="tag hi">高</span>（PM 岗核心）</td></tr>
-<tr><td>4</td><td><b>升级可靠性与跨平台</b></td><td>社区第一大主题（安装/升级报错 19%、平台 16%）；团队文档要求“已发布的持久化用户数据不能被当作可丢弃”（<code>docs/session-format-status.zh.md:24</code>）；postmortem 关注“为什么流程放过了它”</td><td><span class="tag hi">高</span></td></tr>
-<tr><td>5</td><td><b>从编码 agent 走向通用 agent / 桌面产品</b></td><td>默认 SDK 身份改为“通用 AI Agent”；官网主打日常办公、研究、后台任务；JD 写“桌面端 Agent 产品”</td><td><span class="tag mid">中高</span></td></tr>
-<tr><td>6</td><td><b>长任务的诚实与可靠</b>（不假装完成、不盲目重试）</td><td>0.2.0：结果未知的操作先核实副作用；0.2.1：退出后显示“任务已停止”；但审批等待、后台 jobs 仍不跨重启（见下表）</td><td><span class="tag mid">中</span></td></tr>
-<tr><td>7</td><td>多 agent 组织</td><td>实验性 Agent Team、子 agent 预设；但 rc.1 反而<b>删掉</b> Team 的 outbox/重试/去重，说明在简化而非加重</td><td><span class="tag mid">中</span></td></tr></table>
+<tr><td>1</td><td><b>插件生态的秩序：</b>API 稳定、减少破坏性变更、市场与兼容</td><td>Tianyi Cui：“60% 用户用了第三方插件……推动插件 API 趋于稳定”（<a href="https://x.com/tianyi/status/2103534313463783831">9/25</a>）、“长远来看不能依赖插件作者每次改代码兼容新版本”（<a href="https://x.com/tianyi/status/2107030904233460208">10/5</a>）；rc.1 大量插件平台功能，<code>engines.dsh</code> 兼容声明；社区 #1115 #670</td><td><span class="tag ok">高</span></td></tr>
+<tr><td>2</td><td><b>模型 × harness 共同进化</b></td><td>JD：“与模型训练团队的研究员深度合作，实现模型与 Harness 的共同进化”“以内部真实任务做为……训练的重要反馈源”；V4.1-Flash-1017“训练时专门为 DSH 优化”；默认开启的 <code>dsh_session_log</code> 请求扩展会随请求带会话事件（<code>docs/deepseek-llm-api-wire-extensions.zh.md:76</code>）；DSec 训练沙盒</td><td><span class="tag ok">高</span></td></tr>
+<tr><td>3</td><td><b>定义并衡量“Agent 是否真的在更多场景下更深入地帮助到更多的人”</b></td><td>JD 原文职责；同时社区在用自测数据质疑 token 消耗（#8934、#6688）；仓库评测以工程回归和性能为主，任务能力评测只有部分（<code>BENCHMARK.md:3</code>，goal 无独立 evaluator：<code>packages/goal/goal-round-driver/README.zh.md:125</code>）</td><td><span class="tag ok">高</span>（PM 岗核心）</td></tr>
+<tr><td>4</td><td><b>升级可靠性与跨平台</b></td><td>社区第一大主题（安装/升级报错 19%、平台 16%）；团队文档要求“已发布的持久化用户数据不能被当作可丢弃”（<code>docs/session-format-status.zh.md:24</code>）；postmortem 关注“为什么流程放过了它”</td><td><span class="tag ok">高</span></td></tr>
+<tr><td>5</td><td><b>从编码 agent 走向通用 agent / 桌面产品</b></td><td>默认 SDK 身份改为“通用 AI Agent”；官网主打日常办公、研究、后台任务；JD 写“桌面端 Agent 产品”</td><td><span class="tag warn">中高</span></td></tr>
+<tr><td>6</td><td><b>长任务的诚实与可靠</b>（不假装完成、不盲目重试）</td><td>0.2.0：结果未知的操作先核实副作用；0.2.1：退出后显示“任务已停止”；但审批等待、后台 jobs 仍不跨重启（见下表）</td><td><span class="tag warn">中</span></td></tr>
+<tr><td>7</td><td>多 agent 组织</td><td>实验性 Agent Team、子 agent 预设；但 rc.1 反而<b>删掉</b> Team 的 outbox/重试/去重，说明在简化而非加重</td><td><span class="tag warn">中</span></td></tr></table>
 
 <h3>B. 你的候选增量：对照源码和社区</h3>
 <table><tr><th>候选</th><th>dsh 现状（源码）</th><th>社区有没有要</th><th>判断</th></tr>
-<tr><td>任务和审批跨重启存活、可异步等几小时</td><td><b>部分。</b>会话、goal 状态、定时计划会持久；但审批是一个等待中的 Promise，重启后不能回到原等待点（<code>packages/interaction/user-approval/src/index.ts:197</code>）；后台 jobs 记录在内存（<code>packages/jobs/jobs-local/src/index.ts:162</code>）；goal 恢复后需重新授权；PTC 默认 120 秒预算含审批等待</td><td>有，但量不大：#8057 远程端要能自己一直跑、#6796 后台/开机自启、#9544 定时任务静默失效</td><td><span class="tag mid">匹配，但要包装成用户问题</span></td></tr>
-<tr><td>恢复粒度深入脚本内部</td><td><b>没有。</b>脚本里的子调用有日志，但不能从中间续跑</td><td>几乎没人提</td><td><span class="tag lo">别主打</span>，当作“我注意到的取舍”提一句即可</td></tr>
-<tr><td>“需要决策/完成/卡住”事件推到手机/IM</td><td><b>词汇已有，外发通道没有。</b>有 approval/asked、goal blocked 等事件；webhook 只做入站，且明确无队列/重试（<code>docs/subsystems/webhook.zh.md:23</code>）</td><td><b>有，且社区已自己造：</b>#7569、#7437、#8901 求通知；插件 dsh-ntfy-remote、dsh-pwa、DSH Mobile</td><td><span class="tag hi">最强匹配</span>，正好和你的“手机是汇报线”对上</td></tr>
-<tr><td>按角色渐进放权（信任曲线）</td><td><b>部分。</b>有权限预设、子 agent 固定委派权限；没有按进度逐步授权的机制</td><td>反向信号：审批太频繁（#7564、#8397）+ 误删用户目录（#9468）</td><td><span class="tag hi">匹配</span>，可讲成“审批疲劳 vs 安全”的产品问题</td></tr>
-<tr><td>多 agent 组织 + 可观测</td><td><b>已有</b>（Team、Trajectory、开发者工具包）；外部后端过程不可见</td><td>主要是 bug 报告</td><td><span class="tag mid">他们已在做</span>，别当成增量</td></tr></table>
+<tr><td>任务和审批跨重启存活、可异步等几小时</td><td><b>部分。</b>会话、goal 状态、定时计划会持久；但审批是一个等待中的 Promise，重启后不能回到原等待点（<code>packages/interaction/user-approval/src/index.ts:197</code>）；后台 jobs 记录在内存（<code>packages/jobs/jobs-local/src/index.ts:162</code>）；goal 恢复后需重新授权；PTC 默认 120 秒预算含审批等待</td><td>有，但量不大：#8057 远程端要能自己一直跑、#6796 后台/开机自启、#9544 定时任务静默失效</td><td><span class="tag warn">匹配，但要包装成用户问题</span></td></tr>
+<tr><td>恢复粒度深入脚本内部</td><td><b>没有。</b>脚本里的子调用有日志，但不能从中间续跑</td><td>几乎没人提</td><td><span class="tag bad">别主打</span>，当作“我注意到的取舍”提一句即可</td></tr>
+<tr><td>“需要决策/完成/卡住”事件推到手机/IM</td><td><b>词汇已有，外发通道没有。</b>有 approval/asked、goal blocked 等事件；webhook 只做入站，且明确无队列/重试（<code>docs/subsystems/webhook.zh.md:23</code>）</td><td><b>有，且社区已自己造：</b>#7569、#7437、#8901 求通知；插件 dsh-ntfy-remote、dsh-pwa、DSH Mobile</td><td><span class="tag ok">最强匹配</span>，正好和你的“手机是汇报线”对上</td></tr>
+<tr><td>按角色渐进放权（信任曲线）</td><td><b>部分。</b>有权限预设、子 agent 固定委派权限；没有按进度逐步授权的机制</td><td>反向信号：审批太频繁（#7564、#8397）+ 误删用户目录（#9468）</td><td><span class="tag ok">匹配</span>，可讲成“审批疲劳 vs 安全”的产品问题</td></tr>
+<tr><td>多 agent 组织 + 可观测</td><td><b>已有</b>（Team、Trajectory、开发者工具包）；外部后端过程不可见</td><td>主要是 bug 报告</td><td><span class="tag warn">他们已在做</span>，别当成增量</td></tr></table>
 
 <h3>C. 证据提示的新增量</h3>
 <ol>
@@ -231,7 +223,6 @@ a{color:#0969da}small{color:#57606a}blockquote{margin:8px 0;padding:4px 12px;bor
 <p><b>5. 问方向：</b>“论文说下一步是自演化的 harness。真到那一步，安全边界在哪里？是靠创造模式默认关闭 + 进程沙箱，还是会有更细的权限模型？”</p></div>
 </section>
 </main>
-<script>
-document.querySelectorAll('#nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#nav button,section').forEach(e=>e.classList.remove('on'));b.classList.add('on');document.getElementById(b.dataset.t).classList.add('on');scrollTo(0,0);history.replaceState(null,'','#'+b.dataset.t)});
-if(location.hash){const b=document.querySelector('[data-t="'+location.hash.slice(1)+'"]');b&&b.click()}
-</script></body></html>
+<script src="https://psylch.github.io/assets/report.js"></script>
+<script>document.querySelectorAll('#nav [data-t]').forEach(function(b){b.addEventListener('click',function(){scrollTo(0,0)})})</script>
+</body></html>
